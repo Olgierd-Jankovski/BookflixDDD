@@ -1,0 +1,11 @@
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\bin\Debug\net7.0\Bookflix.Domain.deps.json
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\bin\Debug\net7.0\Bookflix.Domain.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\bin\Debug\net7.0\Bookflix.Domain.pdb
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.AssemblyInfoInputs.cache
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.AssemblyInfo.cs
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.csproj.CoreCompileInputs.cache
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\refint\Bookflix.Domain.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.pdb
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\ref\Bookflix.Domain.dll

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>e861a911-c797-429c-83a1-f65cd59a128e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bookflix.Contracts\Bookflix.Contracts.csproj" />
+    <ProjectReference Include="..\Bookflix.Application\Bookflix.Application.csproj" />
+    <ProjectReference Include="..\Bookflix.Infrastructure\Bookflix.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
