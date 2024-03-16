@@ -5,6 +5,8 @@ using Bookflix.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
+using Bookflix.Application.Common.Interfaces.Persistence;
+using Bookflix.Infrastructure.Persistence.userRepository;
 
 namespace Bookflix.Infrastructure;
 
@@ -18,6 +20,8 @@ public static class DependencyInjection
         
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
+        services.AddScoped<IUserRepository, UserRepository>();
         return services;
     }
 }
