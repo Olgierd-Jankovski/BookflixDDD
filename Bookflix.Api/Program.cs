@@ -1,4 +1,4 @@
-using Bookflix.Api.Errors;
+using Bookflix.Api.Common.Errors;
 using Bookflix.Application;
 using Bookflix.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Infrastructure;

@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net7.0": {
+      "ErrorOr/1.10.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/ErrorOr.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/ErrorOr.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
         "type": "package",
         "compile": {
@@ -21,6 +34,9 @@
       "Bookflix.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "ErrorOr": "1.10.0"
+        },
         "compile": {
           "bin/placeholder/Bookflix.Domain.dll": {}
         },
@@ -31,6 +47,23 @@
     }
   },
   "libraries": {
+    "ErrorOr/1.10.0": {
+      "sha512": "prNLSGADVmlFJeTt+GyZ7fg3fPJz8KYDaTIO2PtWZJ3S2ZTOkF6xKIo3JT99b+w4pvIPdl9vgpQckhbN4MdKzQ==",
+      "type": "package",
+      "path": "erroror/1.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "erroror.1.10.0.nupkg.sha512",
+        "erroror.nuspec",
+        "icon-square.png",
+        "lib/net6.0/ErrorOr.dll",
+        "lib/net6.0/ErrorOr.xml",
+        "lib/netstandard2.0/ErrorOr.dll",
+        "lib/netstandard2.0/ErrorOr.xml"
+      ]
+    },
     "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.1": {
       "sha512": "fGLiCRLMYd00JYpClraLjJTNKLmMJPnqxMaiRzEBIIvevlzxz33mXy39Lkd48hu1G+N21S7QpaO5ZzKsI6FRuA==",
       "type": "package",

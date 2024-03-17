@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "LEHEPzmLlgI4IZ7gWCFhrvybEcskHJrO4ulcW5zJvOX15bDQZL619ptOihNTMMEhJbqsLhHvpQf96dKvfB6S6Q==",
+  "dgSpecHash": "ZudRBdRKMswobcp4PKlNR43DVR8tS2c1jUlWIDNC2eRyXzjT58k0todDL5iODWpsY5t+KCsY6pyfVx3oN/QftQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\olgie\\source\\repos\\Bookflix\\Bookflix.Domain\\Bookflix.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\olgie\\.nuget\\packages\\erroror\\1.10.0\\erroror.1.10.0.nupkg.sha512"
+  ],
   "logs": []
 }

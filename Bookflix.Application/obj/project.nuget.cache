@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/GYCweIMt5+Dg+GTGuS/vxhskf+u7Vzga3wGM/KxP3BnxhllEScyaP41KOuXUrwXlXKgLjr809bYlqtQ4CUpgA==",
+  "dgSpecHash": "eRvsZp+HAXLhqvbXiVk0IEsb3n2a1oMMNk5BG2kzJu4nfmRc6SQjm9pD518b/nrqaMfZF7JVT9hJ9uT8WlIL+g==",
   "success": true,
   "projectFilePath": "C:\\Users\\olgie\\source\\repos\\Bookflix\\Bookflix.Application\\Bookflix.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\olgie\\.nuget\\packages\\erroror\\1.10.0\\erroror.1.10.0.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
   ],
   "logs": []

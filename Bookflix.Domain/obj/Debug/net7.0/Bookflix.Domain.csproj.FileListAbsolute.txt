@@ -9,3 +9,4 @@ C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.D
 C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\refint\Bookflix.Domain.dll
 C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.pdb
 C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\ref\Bookflix.Domain.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Domain\obj\Debug\net7.0\Bookflix.Domain.csproj.AssemblyReference.cache

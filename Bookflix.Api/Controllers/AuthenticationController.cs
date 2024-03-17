@@ -1,12 +1,13 @@
+using System.Runtime.InteropServices;
 using Bookflix.Application.Services.Authentication;
 using Bookflix.Contracts.Authentication;
+using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookflix.Api.Controllers;
 
-[ApiController]
 [Route("auth")]
-public class AuthenticationController : ControllerBase
+public class AuthenticationController : ApiController
 {
     private readonly IAuthenticationService _authenticationService;
 
@@ -18,34 +19,40 @@ public class AuthenticationController : ControllerBase
     [HttpPost("register")]
     public IActionResult Register(RegisterRequest request)
     {
-        // ...
-        var authResult = _authenticationService.Register(request.FirstName, request.LastName, request.Email, request.Password);
+        ErrorOr<AuthenticationResult> authResult = _authenticationService.Register(
+            request.FirstName,
+            request.LastName,
+            request.Email,
+            request.Password);
 
-        var response = new AuthenticationResponse(
-            authResult.user.Id,
-            authResult.user.FirstName,
-            authResult.user.LastName,
-            authResult.user.Email,
-            authResult.Token
+        return authResult.Match(
+            authResult => Ok(MapAuthResult(authResult)),
+            errors => Problem(errors)
         );
-
-        return Ok(response);
     }
+
+
 
     [HttpPost("login")]
     public IActionResult Login(LoginRequest request)
     {
-        // ...
-        var authResult = _authenticationService.Login(request.Email, request.Password);
-        
-        var response = new AuthenticationResponse(
+
+        ErrorOr<AuthenticationResult> authResult = _authenticationService.Login(request.Email, request.Password);
+
+        return authResult.Match(
+            authResult => Ok(MapAuthResult(authResult)),
+            errors => Problem(errors)
+        );
+    }
+
+    private static AuthenticationResponse MapAuthResult(AuthenticationResult authResult)
+    {
+        return new AuthenticationResponse(
             authResult.user.Id,
             authResult.user.FirstName,
             authResult.user.LastName,
             authResult.user.Email,
             authResult.Token
         );
-        
-        return Ok(response);
     }
 }

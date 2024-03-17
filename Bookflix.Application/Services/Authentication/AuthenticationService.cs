@@ -1,6 +1,8 @@
 using Bookflix.Application.Common.Interfaces.Authentication;
 using Bookflix.Application.Common.Interfaces.Persistence;
+using Bookflix.Domain.Common.Errors;
 using Bookflix.Domain.Entities;
+using ErrorOr;
 
 namespace Bookflix.Application.Services.Authentication;
 
@@ -16,18 +18,18 @@ public class AuthenticationService : IAuthenticationService
         _userRepository = userRepository;
     }
 
-    public AuthenticationResult Login(string email, string password)
+    public ErrorOr<AuthenticationResult> Login(string email, string password)
     {
         // Check user does not exist
         if(_userRepository.GetUserByEmail(email) is not User user)
         {
-            throw new Exception("wrong credentials");
+            return Errors.Authentication.InvalidCredentials;
         }
 
         // Check the password is correct
         if(user.Password != password)
         {
-            throw new Exception("wrong credentials");
+            return Errors.Authentication.InvalidCredentials;
         }
 
         // Generate jwt token
@@ -41,12 +43,12 @@ public class AuthenticationService : IAuthenticationService
         );
     }
 
-    public AuthenticationResult Register(string firstName, string lastName, string email, string password)
+    public ErrorOr<AuthenticationResult> Register(string firstName, string lastName, string email, string password)
     {
         // Check if user does not exist
         if (_userRepository.GetUserByEmail(email) is not null)
         {
-            throw new Exception("user with given email already exists!");
+            return Errors.User.DuplicateEmail;
         }
 
         // Create user (generate unique ID)
