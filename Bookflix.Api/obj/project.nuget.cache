@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "POw6VoChm84ifqpYjuxe/ikwcVKjctgXSJ/Mmfpdh6qu9SVGUZi7cxw73NAdFRL02sZ/N+yFUPDRQ8Jrr8/2xQ==",
+  "dgSpecHash": "DTf7XTI8MaEF/BYOKO82T0Mf0LLkm9u+E07L+N/aCe2abmJHX/NhoDlDUr9UN4tvBvgpEF7wf0XcattxhWBxew==",
   "success": true,
   "projectFilePath": "C:\\Users\\olgie\\source\\repos\\Bookflix\\Bookflix.Api\\Bookflix.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olgie\\.nuget\\packages\\erroror\\1.10.0\\erroror.1.10.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\microsoft.aspnetcore.authentication\\1.0.0\\microsoft.aspnetcore.authentication.1.0.0.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\1.0.0\\microsoft.aspnetcore.authentication.jwtbearer.1.0.0.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\1.0.0\\microsoft.aspnetcore.cryptography.internal.1.0.0.nupkg.sha512",

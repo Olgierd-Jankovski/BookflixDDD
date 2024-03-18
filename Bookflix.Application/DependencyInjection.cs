@@ -1,4 +1,4 @@
-using Bookflix.Application.Services.Authentication;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bookflix.Application;
@@ -7,8 +7,9 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddApplication(this IServiceCollection services)
     {
-        services.AddScoped<IAuthenticationService, AuthenticationService>();
+        // Registerign the MediatR dependency
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
 
-        return services;
+        return services; 
     }
 }

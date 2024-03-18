@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "eRvsZp+HAXLhqvbXiVk0IEsb3n2a1oMMNk5BG2kzJu4nfmRc6SQjm9pD518b/nrqaMfZF7JVT9hJ9uT8WlIL+g==",
+  "dgSpecHash": "fDauehkoEzgJjnlNs5PO3RRgHT/2BNPCcB8k9J5hi8MU/+95CPe1tu7SLA7C47emSLmB4DZXGqJQjYxIrg8JTQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\olgie\\source\\repos\\Bookflix\\Bookflix.Application\\Bookflix.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olgie\\.nuget\\packages\\erroror\\1.10.0\\erroror.1.10.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512"
   ],
   "logs": []

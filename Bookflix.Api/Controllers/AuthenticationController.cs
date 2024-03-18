@@ -1,7 +1,9 @@
-using System.Runtime.InteropServices;
-using Bookflix.Application.Services.Authentication;
+using Bookflix.Application.Authentication;
+using Bookflix.Application.Authentication.Queries.Login;
+using Bookflix.Application.Authentication.Commands.Register;
 using Bookflix.Contracts.Authentication;
 using ErrorOr;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bookflix.Api.Controllers;
@@ -9,21 +11,25 @@ namespace Bookflix.Api.Controllers;
 [Route("auth")]
 public class AuthenticationController : ApiController
 {
-    private readonly IAuthenticationService _authenticationService;
+    private readonly ISender _sender;
 
-    public AuthenticationController(IAuthenticationService authenticationService)
+    public AuthenticationController(ISender sender)
     {
-        _authenticationService = authenticationService;
+        _sender = sender;
     }
 
+
+
     [HttpPost("register")]
-    public IActionResult Register(RegisterRequest request)
+    public async Task<IActionResult> Register(RegisterRequest request)
     {
-        ErrorOr<AuthenticationResult> authResult = _authenticationService.Register(
+        var command = new RegisterCommand(
             request.FirstName,
             request.LastName,
             request.Email,
             request.Password);
+
+        ErrorOr<AuthenticationResult> authResult = await _sender.Send(command);
 
         return authResult.Match(
             authResult => Ok(MapAuthResult(authResult)),
@@ -34,10 +40,15 @@ public class AuthenticationController : ApiController
 
 
     [HttpPost("login")]
-    public IActionResult Login(LoginRequest request)
+    public async Task<IActionResult> Login(LoginRequest request)
     {
 
-        ErrorOr<AuthenticationResult> authResult = _authenticationService.Login(request.Email, request.Password);
+        var query = new LoginQuery(
+                request.Email,
+                request.Password
+        );
+
+        ErrorOr<AuthenticationResult> authResult = await _sender.Send(query);
 
         return authResult.Match(
             authResult => Ok(MapAuthResult(authResult)),

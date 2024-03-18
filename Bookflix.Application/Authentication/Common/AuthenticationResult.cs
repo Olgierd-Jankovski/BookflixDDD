@@ -1,6 +1,6 @@
 using Bookflix.Domain.Entities;
 
-namespace Bookflix.Application.Services.Authentication
+namespace Bookflix.Application.Authentication
 {
     public record AuthenticationResult(
         User user,
