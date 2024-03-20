@@ -3,7 +3,7 @@ using Bookflix.Domain.Entities;
 namespace Bookflix.Application.Authentication
 {
     public record AuthenticationResult(
-        User user,
+        User User,
         string Token
     );
 }
