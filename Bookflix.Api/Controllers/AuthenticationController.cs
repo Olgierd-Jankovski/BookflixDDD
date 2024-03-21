@@ -6,9 +6,11 @@ using ErrorOr;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using MapsterMapper;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Bookflix.Api.Controllers;
 
+[AllowAnonymous]
 [Route("auth")]
 public class AuthenticationController : ApiController
 {

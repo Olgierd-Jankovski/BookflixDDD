@@ -1,7 +1,7 @@
 namespace Bookflix.Infrastructure.Authentication;
 public class JwtSettings
 {
-    public const string SectionNAme = "JwtSettings";
+    public const string SectionName = "JwtSettings";
     public string Secret { get; init; } = null!;
 
     public int ExpiryDays { get; init; }
