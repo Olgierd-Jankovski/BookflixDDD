@@ -4,8 +4,8 @@ POST {{host}}/auth/register
 Content-Type: application/json
 
 {
-    "firstName": "John",
+    "firstName": "",
     "lastName": "Doe",
-    "email": "johndoe@gmail.com",
+    "email": "",
     "password": "pass"
 }

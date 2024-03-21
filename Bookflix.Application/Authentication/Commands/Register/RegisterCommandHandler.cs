@@ -38,7 +38,6 @@ public class RegisterCommandHandler :
             Email = command.Email,
             Password = command.Password
         };
-            
         _userRepository.Add(user);
 
         // Generate jwt token

@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "cQk9YAjnevBZDCLxCzxT3KQV9j8RBmDAhhvBWNMEV1bqssTgewQi1Y96j/ZLk6zK5DajIUtexwS2/wsTm9kI9w==",
+  "dgSpecHash": "r1cvDl4daixicnUnlYwWHfs4jfMzzf14QlcXSB/1rrUCdLA+PbWEOmG0TjX6QTMiHBBMpaYHSVjcq+FV04KuWA==",
   "success": true,
   "projectFilePath": "C:\\Users\\olgie\\source\\repos\\Bookflix\\Bookflix.Api\\Bookflix.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olgie\\.nuget\\packages\\erroror\\1.10.0\\erroror.1.10.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\mapster.core\\1.2.1\\mapster.core.1.2.1.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\mapster.dependencyinjection\\1.0.1\\mapster.dependencyinjection.1.0.1.nupkg.sha512",

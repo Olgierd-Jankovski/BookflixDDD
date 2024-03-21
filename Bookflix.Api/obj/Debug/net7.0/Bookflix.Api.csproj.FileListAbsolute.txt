@@ -54,3 +54,7 @@ C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\bin\Debug\net7.0\MediatR.Contr
 C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\bin\Debug\net7.0\Mapster.dll
 C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\bin\Debug\net7.0\Mapster.Core.dll
 C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\bin\Debug\net7.0\Mapster.DependencyInjection.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\bin\Debug\net7.0\FluentValidation.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\bin\Debug\net7.0\FluentValidation.AspNetCore.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\bin\Debug\net7.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\olgie\source\repos\Bookflix\Bookflix.Api\obj\Debug\net7.0\Bookflix.Api.MvcApplicationPartsAssemblyInfo.cs

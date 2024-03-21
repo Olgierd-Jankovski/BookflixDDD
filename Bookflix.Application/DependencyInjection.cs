@@ -1,3 +1,9 @@
+using System.Reflection;
+using Bookflix.Application.Authentication;
+using Bookflix.Application.Authentication.Commands.Register;
+using Bookflix.Application.Common.Behaviors;
+using ErrorOr;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -9,6 +15,10 @@ public static class DependencyInjection
     {
         // Registerign the MediatR dependency
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+
+        services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+
+        services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
         return services; 
     }

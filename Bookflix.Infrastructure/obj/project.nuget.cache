@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "GxCUkEu71GGwPOxXUwAQbY0lT68PV4UnG4FJMJaLXczm8sIW9h9XCskmkq5nM1b/yc3+1LBcdSMRvLEaSF7hwA==",
+  "dgSpecHash": "EDeiSpZkD4+IsbkrhzYYOkt5iqKA1jpzTebraKdUORZ2BO/nI6YrhCSV9iQPrEy1FFQGMG4+ZyKpa7vYRorMwQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\olgie\\source\\repos\\Bookflix\\Bookflix.Infrastructure\\Bookflix.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\olgie\\.nuget\\packages\\erroror\\1.10.0\\erroror.1.10.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\olgie\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\mediatr\\12.2.0\\mediatr.12.2.0.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\olgie\\.nuget\\packages\\microsoft.aspnetcore.authentication\\1.0.0\\microsoft.aspnetcore.authentication.1.0.0.nupkg.sha512",
