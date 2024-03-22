@@ -1,3 +1,4 @@
+using Bookflix.Domain.AuthorAggregate;
 using Bookflix.Domain.BookAggregate;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -16,10 +17,6 @@ class BookConfiguration : IEntityTypeConfiguration<Book>
         builder.HasMany(b => b.ReviewIds)
             .WithOne(r => r.Book)
             .HasForeignKey(r => r.BookId);
-
-        builder.HasOne(b => b.Author)
-            .WithMany()
-            .HasForeignKey(b => b.AuthorId);
 
     }
 }

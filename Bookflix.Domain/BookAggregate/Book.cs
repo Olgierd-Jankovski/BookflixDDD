@@ -9,8 +9,7 @@ namespace Bookflix.Domain.BookAggregate;
 
 public sealed class Book : Entity<int>, IAggregateRoot
 {
-    public Author Author { get; private set; }
-    public int AuthorId { get; private set; }
+    public int? AuthorId { get; private set; }
     public string Title { get; private set; }
     public string Description { get; private set; }
     public double AverageRating { get; private set; }
@@ -22,7 +21,7 @@ public sealed class Book : Entity<int>, IAggregateRoot
     private readonly List<BookReview> _reviewIds;
     public IReadOnlyCollection<BookReview> ReviewIds => _reviewIds.AsReadOnly();
 
-    public Book(int id, int authorId, string title, string description, double averageRating) : base(id)
+    public Book(int id, int? authorId, string title, string description, double averageRating) : base(id)
     {
         AuthorId = authorId;
         Title = title;
