@@ -1,5 +1,6 @@
 using Bookflix.Domain.BookReviewAggregate;
 using Bookflix.Domain.ValueObjects;
+using Bookflix.Infrastructure.EntityConfiguration.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -16,5 +17,9 @@ class BookReviewEntityTypeConfiguration : IEntityTypeConfiguration<BookReview>
                 v => v.Value,          // Convert Rating to double
                 v => new Rating(v)     // Convert double to Rating
             );
+
+        // Map DateTimeInfo value object to a database column
+        var dateTimeInfoConfig = new DateTimeInfoConfigurations<BookReview>(b => b.DateTimeInfo);
+        dateTimeInfoConfig.Configure(bookReviewConfigurations);
     }
 }

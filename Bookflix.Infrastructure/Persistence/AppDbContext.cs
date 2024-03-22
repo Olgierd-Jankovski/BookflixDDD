@@ -2,6 +2,7 @@ using Bookflix.Domain.AuthorAggregate;
 using Bookflix.Domain.BookAggregate;
 using Bookflix.Domain.BookAggregate.Entities;
 using Bookflix.Domain.BookReviewAggregate;
+using Bookflix.Domain.UserAggregate;
 using Bookflix.Infrastructure.EntityConfigurations;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,7 @@ public class AppDbContext : DbContext
     : base(options) { }
 
     public DbSet<Author> Authors {get; set;} = null!;
+    public DbSet<User> Users {get; set;} = null!; 
     public DbSet<Book> Books {get; set;} = null!;
     public DbSet<BookGenre> BookGenres {get; set;} = null!;
     public DbSet<BookReview> BookReviews {get; set;} = null!;
