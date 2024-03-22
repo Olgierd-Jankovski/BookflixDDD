@@ -18,8 +18,8 @@ public sealed class Book : Entity<int>, IAggregateRoot
 
     private readonly List<BookGenre> _genres;
     public IReadOnlyCollection<BookGenre> Genres => _genres.AsReadOnly();
-    private readonly List<BookReview> _reviewIds;
-    public IReadOnlyCollection<BookReview> ReviewIds => _reviewIds.AsReadOnly();
+    private readonly List<BookReview> _reviews;
+    public IReadOnlyCollection<BookReview> Reviews => _reviews.AsReadOnly();
 
     public Book(int id, int? authorId, string title, string description, double averageRating) : base(id)
     {
@@ -30,7 +30,7 @@ public sealed class Book : Entity<int>, IAggregateRoot
         CreatedDateTime = DateTime.Now;
         UpdatedDateTime = DateTime.Now;
         _genres = new List<BookGenre>();
-        _reviewIds = new List<BookReview>();
+        _reviews = new List<BookReview>();
     }
 
     public static Book Create(int authorId, string title, string description, double averageRating)
@@ -46,6 +46,6 @@ public sealed class Book : Entity<int>, IAggregateRoot
 
     public void AddBookReview(BookReview review)
     {
-        _reviewIds.Add(review);
+        _reviews.Add(review);
     }
 }

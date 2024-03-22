@@ -14,7 +14,7 @@ class BookConfiguration : IEntityTypeConfiguration<Book>
             .HasForeignKey(bg => bg.BookId);
 
         // move to review ids
-        builder.HasMany(b => b.ReviewIds)
+        builder.HasMany(b => b.Reviews)
             .WithOne(r => r.Book)
             .HasForeignKey(r => r.BookId);
 
