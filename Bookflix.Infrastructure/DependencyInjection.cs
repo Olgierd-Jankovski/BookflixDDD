@@ -36,7 +36,7 @@ public static class DependencyInjection
         services.AddDbContext<AppDbContext>(options =>
         {
         options.UseSqlServer(
-            @"Server=DESKTOP-QJO34A5\SQLEXPRESS;Database=BookflixDB;Trusted_Connection=True;TrustServerCertificate=True;");
+            @"Server=(localdb)\mssqllocaldb;Database=BookflixDB;Trusted_Connection=True");
         });
 
         return services;
