@@ -2,6 +2,7 @@ using Bookflix.Domain.Common.Models;
 using Bookflix.Domain.AuthorAggregate;
 using System.ComponentModel.DataAnnotations;
 using Bookflix.Domain.BookAggregate;
+using Bookflix.Domain.Common.Entities;
 
 namespace Bookflix.Domain.AuthorAggregate;
 
@@ -12,9 +13,7 @@ public sealed class Author : Entity<int>, IAggregateRoot
 
     public string FirstName { get; set; }
     public string LastName { get; set; }
-
-    public DateTime CreatedDateTime { get; set; }
-    public DateTime UpdatedDateTime { get; set; }
+    public DateTimeInfo DateTimeInfo { get; private set; }
 
     private readonly List<Book> _books = new();
     public IReadOnlyCollection<Book> Books => _books.AsReadOnly();
@@ -24,8 +23,7 @@ public sealed class Author : Entity<int>, IAggregateRoot
     {
         FirstName = firstName;
         LastName = lastName;
-        CreatedDateTime = DateTime.Now;
-        UpdatedDateTime = DateTime.Now;
+        DateTimeInfo = new DateTimeInfo();
     }
 
     public static Author Create(string firstName, string lastName)

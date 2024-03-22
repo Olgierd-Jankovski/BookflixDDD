@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using Bookflix.Domain.BookAggregate.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using Bookflix.Domain.BookReviewAggregate;
+using Bookflix.Domain.Common.Entities;
 
 namespace Bookflix.Domain.BookAggregate;
 
@@ -13,8 +14,7 @@ public sealed class Book : Entity<int>, IAggregateRoot
     public string Title { get; private set; }
     public string Description { get; private set; }
     public double AverageRating { get; private set; }
-    public DateTime CreatedDateTime { get; private set; }
-    public DateTime UpdatedDateTime { get; private set; }
+    public DateTimeInfo DateTimeInfo { get; private set; }
 
     private readonly List<BookGenre> _genres;
     public IReadOnlyCollection<BookGenre> Genres => _genres.AsReadOnly();
@@ -27,10 +27,9 @@ public sealed class Book : Entity<int>, IAggregateRoot
         Title = title;
         Description = description;
         AverageRating = averageRating;
-        CreatedDateTime = DateTime.Now;
-        UpdatedDateTime = DateTime.Now;
         _genres = new List<BookGenre>();
         _reviews = new List<BookReview>();
+        DateTimeInfo = new DateTimeInfo();
     }
 
     public static Book Create(int authorId, string title, string description, double averageRating)

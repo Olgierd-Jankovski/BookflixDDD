@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using Bookflix.Domain.BookAggregate;
+using Bookflix.Domain.Common.Entities;
 using Bookflix.Domain.Common.Models;
 using Bookflix.Domain.ValueObjects;
 
@@ -14,8 +15,7 @@ namespace Bookflix.Domain.BookReviewAggregate
 
         // TODO: add reviewer's identity guid (reader's)
         public string? Comment { get; private set; }
-        public DateTime CreatedDateTime { get; private set; }
-        public DateTime UpdatedDateTime { get; private set; }
+        public DateTimeInfo DateTimeInfo { get; private set; }
 
         public Book Book { get; private set; }
         public int? BookId { get; private set; }
@@ -27,8 +27,7 @@ namespace Bookflix.Domain.BookReviewAggregate
             AuthorIdentityGuid = authorIdentityGuid;
             BookId = bookId;
 
-            CreatedDateTime = DateTime.Now;
-            UpdatedDateTime = DateTime.Now;
+            DateTimeInfo = new DateTimeInfo();
         }
 
     }
