@@ -1,0 +1,16 @@
+@host=http://localhost:5244
+@authorId=1
+
+POST {{host}}/books/{{authorId}}
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1N2Y1MjFiNy1lMDFlLTQ5MGItOGI5Ny02NDBhNDA2YjFjMGYiLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwianRpIjoiZWZhY2RkYjItZDU5Yi00M2M4LTlhYzYtMDRjY2RkNDhlMmEyIiwiZXhwIjoxNzExNzQ4MzQ4LCJpc3MiOiJCb29rZmxpeCIsImF1ZCI6IkJvb2tmbGl4In0.ZlE26MOYNRRmUdS-g_tCbTvGdTKYAfdbjZCJ5MEiTPg
+
+{
+    "title": "The Great Gatsby",
+    "description": "Best description ever",
+    "genres": [
+        {
+            "genreId": 1
+        }
+    ]
+}

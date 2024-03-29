@@ -4,7 +4,7 @@ using Bookflix.Application.Authentication.Queries.Login;
 using Bookflix.Contracts.Authentication;
 using Mapster;
 
-namespace Bookflix.Api.Common;
+namespace Bookflix.Api.Common.Mapping;
 
 public class AuthenticationMappingConfig : IRegister
 {

@@ -25,6 +25,7 @@ public static class DependencyInjection
         
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IBookRepository, BookRepository>();
 
         return services;
     }
