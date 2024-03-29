@@ -20,7 +20,8 @@ namespace Bookflix.Domain.BookReviewAggregate
         public Book Book { get; private set; }
         public int? BookId { get; private set; }
 
-        public BookReview(int id, Rating rating, string? comment, Guid authorIdentityGuid, int? bookId = null) : base(id)
+        public BookReview(int id, Rating rating, string? comment, Guid authorIdentityGuid, int? bookId = null)
+        : base(id)
         {
             Rating = rating;
             Comment = comment;
@@ -29,6 +30,5 @@ namespace Bookflix.Domain.BookReviewAggregate
 
             DateTimeInfo = new DateTimeInfo();
         }
-
     }
 }

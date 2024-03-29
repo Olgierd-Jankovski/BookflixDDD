@@ -5,6 +5,8 @@ using Bookflix.Domain.BookAggregate.Entities;
 using System.ComponentModel.DataAnnotations.Schema;
 using Bookflix.Domain.BookReviewAggregate;
 using Bookflix.Domain.Common.Entities;
+using Bookflix.Domain.BookAggregate.Enums;
+using Bookflix.Domain.ValueObjects;
 
 namespace Bookflix.Domain.BookAggregate;
 
@@ -21,30 +23,38 @@ public sealed class Book : Entity<int>, IAggregateRoot
     private readonly List<BookReview> _reviews;
     public IReadOnlyCollection<BookReview> Reviews => _reviews.AsReadOnly();
 
-    public Book(int id, int? authorId, string title, string description, double averageRating) : base(id)
+    public Book(int id, int? authorId, string title, string description) : base(id)
     {
         AuthorId = authorId;
         Title = title;
         Description = description;
-        AverageRating = averageRating;
+        AverageRating = new Rating(0).Value;
         _genres = new List<BookGenre>();
         _reviews = new List<BookReview>();
         DateTimeInfo = new DateTimeInfo();
     }
 
-    public static Book Create(int authorId, string title, string description, double averageRating)
+    public static Book Create(int authorId, string title, string description)
     {
-        var book = new Book(default, authorId, title, description, averageRating);
+        var book = new Book(default, authorId, title, description);
         return book;
     }
 
-    public void AddGenre(BookGenre genre)
+    public void AddGenre(Genre genre)
     {
-        _genres.Add(genre);
+        // check for duplicates
+        if (_genres.Any(g => g.Genre == genre))
+        {
+            return;
+        }
+        var bookGenre = new BookGenre(default, genre, Id);
+        _genres.Add(bookGenre);
     }
 
-    public void AddBookReview(BookReview review)
+    public void AddBookReview(double rating, string comment, Guid authorIdentityGuid)
     {
-        _reviews.Add(review);
-    }
+        var bookReview = new BookReview(default, new Rating(rating), comment, authorIdentityGuid, Id);
+        _reviews.Add(bookReview);
+    }  
+    
 }
