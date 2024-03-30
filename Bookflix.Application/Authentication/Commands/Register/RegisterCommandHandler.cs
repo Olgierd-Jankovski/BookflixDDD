@@ -1,7 +1,7 @@
 using Bookflix.Application.Common.Interfaces.Authentication;
 using Bookflix.Application.Common.Interfaces.Persistence;
-using Bookflix.Domain.Entities;
 using Bookflix.Domain.Common.Errors;
+using Bookflix.Domain.UserAggregate;
 using ErrorOr;
 using MediatR;
 
@@ -31,13 +31,14 @@ public class RegisterCommandHandler :
         }
 
         // Create user (generate unique ID)
-        var user = new User
-        {
-            FirstName = command.FirstName,
-            LastName = command.LastName,
-            Email = command.Email,
-            Password = command.Password
-        };
+        var user = User.Create(
+            command.FirstName,
+            command.LastName,
+            command.Email,
+            command.Password
+        );
+
+
         _userRepository.Add(user);
 
         // Generate jwt token
@@ -46,7 +47,11 @@ public class RegisterCommandHandler :
         );
 
         return new AuthenticationResult(
-            user,
+            user.Id,
+            user.UserIdentityGuid,
+            user.Email,
+            user.FirstName,
+            user.LastName,
             token
         );
     }

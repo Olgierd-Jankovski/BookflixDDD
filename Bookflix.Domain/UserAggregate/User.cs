@@ -38,4 +38,9 @@ public sealed class User : Entity<int>, IAggregateRoot
         Author = author;
         AuthorId = author.Id;
     }
+
+    public bool IsAuthor(int authorId)
+    {
+        return AuthorId == authorId;
+    }
 }

@@ -1,7 +1,7 @@
 using Bookflix.Application.Common.Interfaces.Authentication;
 using Bookflix.Application.Common.Interfaces.Persistence;
-using Bookflix.Domain.Entities;
 using Bookflix.Domain.Common.Errors;
+using Bookflix.Domain.UserAggregate;
 using ErrorOr;
 using MediatR;
 
@@ -42,7 +42,11 @@ public class LoginQueryHandler :
         );
 
         return new AuthenticationResult(
-            user,
+            user.Id,
+            user.UserIdentityGuid,
+            user.Email,
+            user.FirstName,
+            user.LastName,
             token
         );
     }

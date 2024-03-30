@@ -1,9 +1,11 @@
-using Bookflix.Domain.Entities;
-
 namespace Bookflix.Application.Authentication
 {
     public record AuthenticationResult(
-        User User,
+        int Id,
+        Guid UserIdentityGuid,
+        string Email,
+        string FirstName,
+        string LastName,
         string Token
     );
 }

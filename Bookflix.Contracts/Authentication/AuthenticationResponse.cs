@@ -1,7 +1,7 @@
 namespace Bookflix.Contracts.Authentication
 {
     public record AuthenticationResponse(
-        Guid Id,
+        int Id,
         string FirstName,
         string LastName,
         string Email,
