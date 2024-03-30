@@ -12,6 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Bookflix.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace Bookflix.Infrastructure;
 
@@ -22,8 +23,9 @@ public static class DependencyInjection
         ConfigurationManager configuration)
     {   
         services.AddAuth(configuration).AddPersistence();
-        
+        services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
         services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+        services.AddScoped<IIDentityService, IdentityService>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IBookRepository, BookRepository>();
 

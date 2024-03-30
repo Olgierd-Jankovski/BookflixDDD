@@ -1,4 +1,5 @@
-using Bookflix.Domain.Entities;
+
+using Bookflix.Domain.UserAggregate;
 
 namespace Bookflix.Application.Common.Interfaces.Authentication
 {
