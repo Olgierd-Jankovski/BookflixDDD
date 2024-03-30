@@ -3,7 +3,7 @@ using System.Security.Claims;
 using System.Text;
 using Bookflix.Application.Common.Interfaces.Authentication;
 using Bookflix.Application.Common.Interfaces.Services;
-using Bookflix.Domain.Entities;
+using Bookflix.Domain.UserAggregate;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 

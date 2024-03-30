@@ -7,9 +7,10 @@ using MediatR;
 namespace Bookflix.Application.Books.Commands.CreateBook
 {
     public record CreateBookCommand(
-        int AuthorId,
         string Title,
         string Description,
+        int AuthorId,
+        int UserId,
         List<BookGenreCommand> Genres
     ) : IRequest<ErrorOr<Book>>;
 

@@ -12,13 +12,12 @@ public class BookMappingConfig : IRegister
 {
     public void Register(TypeAdapterConfig config)
     {
-        config.NewConfig<(CreateBookRequest Request, int AuthorId), CreateBookCommand>()
-            .Map(dest => dest.AuthorId, src => src.AuthorId)
+        config.NewConfig<(CreateBookRequest Request, int UserId), CreateBookCommand>()
+            .Map(dest => dest.UserId, src => src.UserId)
             .Map(dest => dest, src => src.Request);
 
         config.NewConfig<GenreRequest, BookGenreCommand>()
             .Map(dest => dest.Genre, src => (Genre)src.GenreId);
-
 
         config.NewConfig<Book, BookResponse>()
             .Map(dest => dest.UpdatedAt, src => src.DateTimeInfo.UpdatedDateTime)
