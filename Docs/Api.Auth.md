@@ -36,7 +36,7 @@ POST{{host}}/auth/register
 
 ```json
 {
-  "id": "5f5d7a75-6d35-4cea-80b6-76906143d7f6",
+  "id": 123, 
   "firstName": "john",
   "lastName": "doe",
   "email": "johndoe@gmail.com",
@@ -66,7 +66,7 @@ POST{{host}}/auth/login
 
 ```json
 {
-  "id": "5f5d7a75-6d35-4cea-80b6-76906143d7f6",
+  "id": 123,
   "firstName": "john",
   "lastName": "doe",
   "email": "johndoe@gmail.com",

@@ -1,13 +1,14 @@
 @host=http://localhost:5244
-@authorId=1
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZ2l2ZW5fbmFtZSI6IkpvaG4iLCJmYW1pbHlfbmFtZSI6IkRvZSIsImp0aSI6IjEzOWVjZWU2LTIzOWMtNDA4My1iOTI0LWQzMDg0OWM2OTUxNiIsImV4cCI6MTcxMTgyOTM4MywiaXNzIjoiQm9va2ZsaXgiLCJhdWQiOiJCb29rZmxpeCJ9.iDfYJchySjDZHa04vCwBx0SEM_8R98NjKKfrZgSJzyI
 
-POST {{host}}/books/{{authorId}}
+POST {{host}}/books
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1N2Y1MjFiNy1lMDFlLTQ5MGItOGI5Ny02NDBhNDA2YjFjMGYiLCJnaXZlbl9uYW1lIjoiSm9obiIsImZhbWlseV9uYW1lIjoiRG9lIiwianRpIjoiZWZhY2RkYjItZDU5Yi00M2M4LTlhYzYtMDRjY2RkNDhlMmEyIiwiZXhwIjoxNzExNzQ4MzQ4LCJpc3MiOiJCb29rZmxpeCIsImF1ZCI6IkJvb2tmbGl4In0.ZlE26MOYNRRmUdS-g_tCbTvGdTKYAfdbjZCJ5MEiTPg
+Authorization: Bearer {{token}}
 
 {
     "title": "The Great Gatsby",
     "description": "Best description ever",
+    "authorId": 1,
     "genres": [
         {
             "genreId": 1
