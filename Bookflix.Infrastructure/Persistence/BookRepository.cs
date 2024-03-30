@@ -5,7 +5,7 @@ namespace Bookflix.Infrastructure.Persistence;
 
 public class BookRepository : IBookRepository
 {
-    /*private readonly AppDbContext _context;
+    private readonly AppDbContext _context;
 
     public BookRepository(AppDbContext context)
     {
@@ -15,12 +15,15 @@ public class BookRepository : IBookRepository
     public void Add(Book book)
     {
         _context.Books.Add(book);
-    }*/
 
-    private static readonly List<Book> _books = new();
+        _context.SaveChanges();
+        // we do not want to save the changes, only check out how the book is added to the context
+    }
+
+    /*private static readonly List<Book> _books = new();
 
     public void Add(Book book)
     {
         _books.Add(book);
-    }
+    } */
 }
