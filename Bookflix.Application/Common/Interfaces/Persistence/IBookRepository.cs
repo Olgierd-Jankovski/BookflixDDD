@@ -9,4 +9,6 @@ public interface IBookRepository
     Book GetBookById(int bookId);
     Task<Book> GetBookByIdAsync(int bookId);
     Task SaveChangesAsync(CancellationToken cancellationToken = default);
+    Task<List<Book>> ToListAsync(int? authorId, CancellationToken cancellationToken);
+
 }

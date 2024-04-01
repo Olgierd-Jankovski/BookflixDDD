@@ -36,10 +36,21 @@ public class BookRepository : IBookRepository
 
         return book;
     }
-
+    
     public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         await _context.SaveChangesAsync(cancellationToken);
+    }
+
+    public async Task<List<Book>> ToListAsync(int? authorId, CancellationToken cancellationToken)
+    {   
+        var books = await _context.Books
+            .Where(b => authorId == null || b.AuthorId == authorId)
+            .Include(b => b.Genres)
+            .Include(b => b.Reviews)
+            .ToListAsync(cancellationToken);
+
+        return books;
     }
 
     /*private static readonly List<Book> _books = new();

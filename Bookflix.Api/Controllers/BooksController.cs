@@ -1,6 +1,7 @@
 using System.Security.Claims;
 using Bookflix.Application.Books.Commands.AddBookReview;
 using Bookflix.Application.Books.Commands.CreateBook;
+using Bookflix.Application.Books.Queries.ListBooks;
 using Bookflix.Application.Common.Interfaces.Services;
 using Bookflix.Contracts.Books;
 using MapsterMapper;
@@ -64,6 +65,19 @@ public class BooksController : ApiController
 
         return result.Match(
             review => Ok(_mapper.Map<BookReviewResponse>(review)),
+            errors => Problem(errors)
+        );
+    }
+
+    [HttpGet] // "books?authorId=1
+    public async Task<IActionResult> ListBooks([FromQuery] int? authorId)
+    {
+        var query = new ListBooksQuery(authorId);
+
+        var result = await _sender.Send(query);
+
+        return result.Match(
+            books => Ok(_mapper.Map<List<BookResponse>>(books)),
             errors => Problem(errors)
         );
     }

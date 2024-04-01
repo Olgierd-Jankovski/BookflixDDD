@@ -1,0 +1,9 @@
+@host=http://localhost:5244
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZ2l2ZW5fbmFtZSI6IkpvaG4iLCJmYW1pbHlfbmFtZSI6IkRvZSIsImp0aSI6ImQ3ZTA0Nzg3LWE0ZTMtNDAxMC04OTkzLWY2MDBmZTk5ZDI1MCIsImV4cCI6MTcxMjA4OTM3OSwiaXNzIjoiQm9va2ZsaXgiLCJhdWQiOiJCb29rZmxpeCJ9.aYtsDpVW5relF_43-gJdvabsB5FfbMlBQJS5yCGe0yQ
+
+GET {{host}}/books?authorId=1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+}
