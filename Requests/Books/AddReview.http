@@ -1,0 +1,12 @@
+@host=http://localhost:5244
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZ2l2ZW5fbmFtZSI6IkpvaG4iLCJmYW1pbHlfbmFtZSI6IkRvZSIsImp0aSI6IjRiYTRhMWYxLWFiY2ItNDQzMy05YmEzLWFkYjMxYTA1MWUyMCIsImV4cCI6MTcxMjA2NzU5NCwiaXNzIjoiQm9va2ZsaXgiLCJhdWQiOiJCb29rZmxpeCJ9.NIfw1C4sJj3RqtvKddyNODkCgiTMCR2foavhdK0_QVA
+@bookId=1
+
+POST {{host}}/books/{{bookId}}/reviews
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "rating": 3,
+    "bookId": 6
+}
