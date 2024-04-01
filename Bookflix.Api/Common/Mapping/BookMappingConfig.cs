@@ -1,3 +1,4 @@
+using Bookflix.Application.Books.Commands.AddBookReview;
 using Bookflix.Application.Books.Commands.CreateBook;
 using Bookflix.Contracts.Books;
 using Bookflix.Domain.BookAggregate;
@@ -13,6 +14,10 @@ public class BookMappingConfig : IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<(CreateBookRequest Request, int UserId), CreateBookCommand>()
+            .Map(dest => dest.UserId, src => src.UserId)
+            .Map(dest => dest, src => src.Request);
+
+        config.NewConfig<(AddBookReviewRequest Request, int UserId), AddBookReviewCommand>()
             .Map(dest => dest.UserId, src => src.UserId)
             .Map(dest => dest, src => src.Request);
 
