@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Bookflix.Application.Books.Commands.AddBookReview;
 using Bookflix.Application.Books.Commands.CreateBook;
 using Bookflix.Application.Common.Interfaces.Services;
 using Bookflix.Contracts.Books;
@@ -42,6 +43,27 @@ public class BooksController : ApiController
 
         return result.Match(
             book => Ok(_mapper.Map<BookResponse>(book)),
+            errors => Problem(errors)
+        );
+    }
+
+    [HttpPost("{bookId}/reviews")]
+    public async Task<IActionResult> AddReview(AddBookReviewRequest request)
+    {
+        // extract user identity from jwt token
+        int? userId = _identityService.GetUserId();
+
+        if (userId is null)
+        {
+            return Unauthorized();
+        }
+
+        var command = _mapper.Map<AddBookReviewCommand>((request, userId.Value));
+
+        var result = await _sender.Send(command);
+
+        return result.Match(
+            review => Ok(_mapper.Map<BookReviewResponse>(review)),
             errors => Problem(errors)
         );
     }
