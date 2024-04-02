@@ -26,7 +26,14 @@ public class AddBookReviewCommandHandler : IRequestHandler<AddBookReviewCommand,
 
         var reviewerId = new Guid(); // Replace with the actual reviewer's identity guid
         var authorId = new Guid(); // Replace with the actual author's identity guid
-        var review = book.AddReview(new Rating(request.Rating), request.Comment, authorId);
+        //var review = book.AddReview(new Rating(request.Rating), request.Comment, authorId);
+        ErrorOr<Rating> rating = Rating.Create(request.Rating);
+        if (rating.IsError)
+        {
+            return rating.Errors;
+        }        
+        
+        var review = book.AddReview(rating.Value, request.Comment, authorId);
 
         await _bookRepository.SaveChangesAsync(cancellationToken);
 
