@@ -26,7 +26,7 @@ public class BookRepository : IBookRepository
         return _context.Books.Find(bookId);
     }
 
-    public async Task<Book> GetBookByIdAsync(int bookId)
+    public async Task<Book> GetBookByIdAsync(int bookId, CancellationToken cancellationToken = default)
     {
         var book = await _context.Books
             .Where(b => b.Id == bookId)
@@ -51,6 +51,12 @@ public class BookRepository : IBookRepository
             .ToListAsync(cancellationToken);
 
         return books;
+    }
+
+    public async Task UpdateAsync(Book book, CancellationToken cancellationToken = default)
+    {
+        _context.Update(book);
+        await _context.SaveChangesAsync(cancellationToken);
     }
 
     /*private static readonly List<Book> _books = new();
