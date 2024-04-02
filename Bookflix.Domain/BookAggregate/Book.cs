@@ -10,6 +10,7 @@ using Bookflix.Domain.ValueObjects;
 using Bookflix.Domain.Common.Errors;
 using ErrorOr;
 using Bookflix.Domain.BookReviewAggregate.Events;
+using System.Text.RegularExpressions;
 
 namespace Bookflix.Domain.BookAggregate;
 
@@ -57,7 +58,7 @@ public sealed class Book : Entity<int>, IAggregateRoot
     public ErrorOr<BookReview> AddReview(Rating rating, string comment, Guid authorIdentityGuid, Guid reviewerIdentityGuid, int reviewerId)
     {
         // check did the author review its own book before, he can review only once
-        if (_reviews.Any(r => r.AuthorIdentityGuid == reviewerIdentityGuid))
+        if (_reviews.Any(r => r.ReviewerIdentityGuid == authorIdentityGuid))
         {
             return Errors.Book.AuthorHasAlreadyReviewedTheBook;
         }
