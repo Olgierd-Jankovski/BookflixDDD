@@ -1,8 +1,10 @@
 namespace Bookflix.Domain.Common.Models;
 
-public abstract class Entity<TId>
+public abstract class Entity<TId> : IHasDomainEvents
 {
 
+    private readonly List<IDomainEvent> _domainEvents = new();
+    public IReadOnlyList<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
     private int? _requestedHashCode;
 
     public TId Id { get; protected set; }
@@ -10,6 +12,15 @@ public abstract class Entity<TId>
     protected Entity(TId id)
     {
         Id = id;
+    }
+
+    public void AddDomainEvent(IDomainEvent domainEvents)
+    {
+        _domainEvents.Add(domainEvents);
+    }
+    public void ClearDomainEvents()
+    {
+        _domainEvents.Clear();
     }
 
     public bool IsTransient()
