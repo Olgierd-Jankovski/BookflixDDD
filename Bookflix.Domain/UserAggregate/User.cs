@@ -8,7 +8,7 @@ public sealed class User : Entity<int>, IAggregateRoot
     // make optional authorId
     public int? AuthorId { get; private set; }
     public Author? Author { get; private set; }
-    public Guid UserIdentityGuid { get; set; } = Guid.NewGuid();
+    public Guid UserIdentityGuid { get; set; }
     public string FirstName { get; set; } = null!;
 
     public string LastName { get; set; } = null!;

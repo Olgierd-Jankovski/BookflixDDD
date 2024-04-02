@@ -7,6 +7,8 @@ using Bookflix.Domain.BookReviewAggregate;
 using Bookflix.Domain.Common.Entities;
 using Bookflix.Domain.BookAggregate.Enums;
 using Bookflix.Domain.ValueObjects;
+using Bookflix.Domain.Common.Errors;
+using ErrorOr;
 
 namespace Bookflix.Domain.BookAggregate;
 
@@ -51,8 +53,14 @@ public sealed class Book : Entity<int>, IAggregateRoot
         _genres.Add(bookGenre);
     }
 
-    public BookReview AddReview(Rating rating, string comment, Guid authorIdentityGuid, Guid reviewerIdentityGuid)
+    public ErrorOr<BookReview> AddReview(Rating rating, string comment, Guid authorIdentityGuid, Guid reviewerIdentityGuid, int reviewerId)
     {
+        // check did the author review its own book before, he can review only once
+        if (_reviews.Any(r => r.AuthorIdentityGuid == authorIdentityGuid))
+        {
+            return Errors.Book.AuthorHasAlreadyReviewedTheBook;
+        }
+
         var bookReview = new BookReview(default, rating, comment, authorIdentityGuid, reviewerIdentityGuid, Id);
         _reviews.Add(bookReview);
 
