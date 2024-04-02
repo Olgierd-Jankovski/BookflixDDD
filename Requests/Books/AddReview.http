@@ -1,5 +1,5 @@
 @host=http://localhost:5244
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwiZ2l2ZW5fbmFtZSI6IkpvaG4iLCJmYW1pbHlfbmFtZSI6IkRvZSIsImp0aSI6IjRiYTRhMWYxLWFiY2ItNDQzMy05YmEzLWFkYjMxYTA1MWUyMCIsImV4cCI6MTcxMjA2NzU5NCwiaXNzIjoiQm9va2ZsaXgiLCJhdWQiOiJCb29rZmxpeCJ9.NIfw1C4sJj3RqtvKddyNODkCgiTMCR2foavhdK0_QVA
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyIiwiZ2l2ZW5fbmFtZSI6IkpvaG4yIiwiZmFtaWx5X25hbWUiOiJEb2UyIiwianRpIjoiOTlkMzM4OGQtZDI3MC00YjA2LWFmZjItNzBmMGVjMmZjOTViIiwiZXhwIjoxNzEyMTU3NTg5LCJpc3MiOiJCb29rZmxpeCIsImF1ZCI6IkJvb2tmbGl4In0.DNY0xwbQK9Zfn133ZxzDlAw72I97KrgUbSSpf87i1YY
 @bookId=1
 
 POST {{host}}/books/{{bookId}}/reviews
@@ -7,6 +7,6 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "rating": 1,
-    "bookId": 6
+    "rating": 4.5,
+    "bookId": 5
 }
