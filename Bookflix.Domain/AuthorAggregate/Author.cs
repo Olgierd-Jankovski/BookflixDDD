@@ -8,7 +8,6 @@ namespace Bookflix.Domain.AuthorAggregate;
 
 public sealed class Author : Entity<int>, IAggregateRoot
 {
-
     public Guid IdentityGuid { get; private set; }
 
     public string FirstName { get; set; }
