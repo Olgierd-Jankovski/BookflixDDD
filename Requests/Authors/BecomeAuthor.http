@@ -1,0 +1,11 @@
+@host=http://localhost:5244
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwiZ2l2ZW5fbmFtZSI6IkpvaG4zIiwiZmFtaWx5X25hbWUiOiJEb2UzIiwianRpIjoiZDZmYzNmYTctY2ZjMy00NDlkLTlhNDktMjY3ZDQ0NTA3YzUyIiwiZXhwIjoxNzEyMTc5MzUxLCJpc3MiOiJCb29rZmxpeCIsImF1ZCI6IkJvb2tmbGl4In0.-mzgtMmjZtU8_NymBx5ug-yd7IPf2iu0Ct38WS7wDc4
+
+POST {{host}}/authors
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "firstName": "JohnAuthor",
+    "lastName": ""
+}

@@ -12,5 +12,9 @@ public static partial class Errors
         public static Error UnauthorizedAsAuthor => Error.Unauthorized(
             code: "User.UnauthorizedAsAuthor",
             description: "User is not authorized as an author");
+
+        public static Error AlreadyRegisteredAsAuthor => Error.Conflict(
+            code: "User.AlreadyRegisteredAsAuthor",
+            description: "User is already registered as an author");
     }
 }
