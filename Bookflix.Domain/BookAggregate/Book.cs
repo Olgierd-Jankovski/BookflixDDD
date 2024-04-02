@@ -51,9 +51,9 @@ public sealed class Book : Entity<int>, IAggregateRoot
         _genres.Add(bookGenre);
     }
 
-    public BookReview AddReview(Rating rating, string comment, Guid authorIdentityGuid)
+    public BookReview AddReview(Rating rating, string comment, Guid authorIdentityGuid, Guid reviewerIdentityGuid)
     {
-        var bookReview = new BookReview(default, rating, comment, authorIdentityGuid, Id);
+        var bookReview = new BookReview(default, rating, comment, authorIdentityGuid, reviewerIdentityGuid, Id);
         _reviews.Add(bookReview);
 
         return bookReview;

@@ -12,20 +12,20 @@ namespace Bookflix.Domain.BookReviewAggregate
         [Required]
         public Rating Rating { get; private set; }
         public Guid AuthorIdentityGuid { get; private set; }
-
-        // TODO: add reviewer's identity guid (reader's)
+        public Guid ReviewerIdentityGuid { get; private set; }
         public string? Comment { get; private set; }
         public DateTimeInfo DateTimeInfo { get; private set; }
 
         public Book Book { get; private set; }
         public int? BookId { get; private set; }
 
-        public BookReview(int id, Rating rating, string? comment, Guid authorIdentityGuid, int? bookId = null)
+        public BookReview(int id, Rating rating, string? comment, Guid authorIdentityGuid, Guid reviewerIdentityGuid, int? bookId = null)
         : base(id)
         {
             Rating = rating;
             Comment = comment;
             AuthorIdentityGuid = authorIdentityGuid;
+            ReviewerIdentityGuid = reviewerIdentityGuid;
             BookId = bookId;
 
             DateTimeInfo = new DateTimeInfo();

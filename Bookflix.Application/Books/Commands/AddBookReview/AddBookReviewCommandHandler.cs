@@ -33,7 +33,7 @@ public class AddBookReviewCommandHandler : IRequestHandler<AddBookReviewCommand,
             return rating.Errors;
         }        
         
-        var review = book.AddReview(rating.Value, request.Comment, authorId);
+        var review = book.AddReview(rating.Value, request.Comment, authorId, reviewerId);
 
         await _bookRepository.SaveChangesAsync(cancellationToken);
 
