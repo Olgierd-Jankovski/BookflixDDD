@@ -9,6 +9,7 @@ using Bookflix.Domain.BookAggregate.Enums;
 using Bookflix.Domain.ValueObjects;
 using Bookflix.Domain.Common.Errors;
 using ErrorOr;
+using Bookflix.Domain.BookReviewAggregate.Events;
 
 namespace Bookflix.Domain.BookAggregate;
 
@@ -56,7 +57,7 @@ public sealed class Book : Entity<int>, IAggregateRoot
     public ErrorOr<BookReview> AddReview(Rating rating, string comment, Guid authorIdentityGuid, Guid reviewerIdentityGuid, int reviewerId)
     {
         // check did the author review its own book before, he can review only once
-        if (_reviews.Any(r => r.AuthorIdentityGuid == authorIdentityGuid))
+        if (_reviews.Any(r => r.AuthorIdentityGuid == reviewerIdentityGuid))
         {
             return Errors.Book.AuthorHasAlreadyReviewedTheBook;
         }
@@ -64,6 +65,16 @@ public sealed class Book : Entity<int>, IAggregateRoot
         var bookReview = new BookReview(default, rating, comment, authorIdentityGuid, reviewerIdentityGuid, Id);
         _reviews.Add(bookReview);
 
+        // we are not publishing the domain event
+        // because it event handler will invoke that before it will get persisted
+        //bookReview.AddDomainEvent(new BookReviewAddedDomainEvent(bookReview));
+
         return bookReview;
+    }
+
+    public void UpdateAverageRating(Rating rating)
+    {
+        var totalRating = _reviews.Sum(r => r.Rating.Value);
+        AverageRating = totalRating / _reviews.Count;
     }   
 }

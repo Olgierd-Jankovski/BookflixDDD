@@ -1,5 +1,6 @@
 using Bookflix.Application.Common.Interfaces.Persistence;
 using Bookflix.Domain.BookReviewAggregate;
+using Bookflix.Domain.BookReviewAggregate.Events;
 using Bookflix.Domain.ValueObjects;
 using ErrorOr;
 using MediatR;
@@ -50,7 +51,11 @@ public class AddBookReviewCommandHandler : IRequestHandler<AddBookReviewCommand,
             return review.Errors;
         }
 
-        await _bookRepository.SaveChangesAsync(cancellationToken);
+        await _bookRepository.UpdateAsync(book);
+
+        review.Value.AddDomainEvent(new BookReviewAddedDomainEvent(review.Value));
+
+        await _bookRepository.SaveChangesAsync(); 
 
         return review;
     }

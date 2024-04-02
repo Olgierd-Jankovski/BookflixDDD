@@ -13,6 +13,7 @@ using System.Text;
 using Bookflix.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using Bookflix.Infrastructure.Persistence.Interceptors;
 
 namespace Bookflix.Infrastructure;
 
@@ -38,11 +39,12 @@ public static class DependencyInjection
             options.UseSqlServer(
                 @"Server=(localdb)\mssqllocaldb;Database=BookflixDB;Trusted_Connection=True");
         });
-
+        services.AddScoped<PublishDomainEventsInterceptor>();
         services.AddScoped<IIDentityService, IdentityService>();
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IBookRepository, BookRepository>();
         services.AddScoped<IAuthorRepository, AuthorRepository>();
+        services.AddScoped<IBookReviewRepository, BookReviewRepository>();
 
         return services;
     }
