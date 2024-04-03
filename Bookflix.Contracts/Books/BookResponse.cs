@@ -23,5 +23,6 @@ public record BookReviewResponse(
     double Rating,
     string Comment,
     Guid AuthorIdentityGuid,
+    Guid ReviewerIdentityGuid,
     int BookId
 );

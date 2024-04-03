@@ -57,8 +57,8 @@ public sealed class Book : Entity<int>, IAggregateRoot
 
     public ErrorOr<BookReview> AddReview(Rating rating, string comment, Guid authorIdentityGuid, Guid reviewerIdentityGuid, int reviewerId)
     {
-        // check did the author review its own book before, he can review only once
-        if (_reviews.Any(r => r.ReviewerIdentityGuid == authorIdentityGuid))
+        // check if the current reviewer is that books author and he did already review the book
+        if (AuthorId == reviewerId && _reviews.Any(r => r.AuthorIdentityGuid == reviewerIdentityGuid))
         {
             return Errors.Book.AuthorHasAlreadyReviewedTheBook;
         }
